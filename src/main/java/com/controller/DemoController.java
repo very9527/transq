@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +12,7 @@ import com.controller.domain.DogObject;
 import com.dao.domain.UserObject;
 import com.service.DemoService;
 
-@RestController
+@Controller
 public class DemoController {
 	
 	@Autowired
@@ -21,14 +20,14 @@ public class DemoController {
 	
 	@RequestMapping("/hello")
 	@ResponseBody
-	public DataOutput<DogObject> hello(@RequestBody DogObject dog){
-		System.out.println(dog.getName());
+	public DataOutput<DogObject> hello(){
+		System.out.println("Helo");
 		UserObject user = demoService.getUserById(1);
 		
 		System.out.println(user.getId()+"");
 		
 		DogObject dog2 = new DogObject();
-		dog2.setName("vivi");
+		dog2.setName("vvi");
 		DataOutput<DogObject> data = new DataOutput<DogObject>();
 		data.setCode("200");
 		data.setMsg("fail");
